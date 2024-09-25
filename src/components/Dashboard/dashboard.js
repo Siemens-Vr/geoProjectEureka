@@ -190,10 +190,10 @@ const Dashboard = ({Data, role}) => {
               </div>
             </div>
             <div>
-              <div className="flex justify-center pb-2 pt-4">
+              <div className="flex justify-center pb-2 pt-4 pl-2 pr-2">
                 <input
                   type="text"
-                  className="input input-bordered w-full max-w-xs bg-light-grey text-black"
+                  className="input input-bordered w-full sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg bg-light-grey text-black"
                   placeholder="Search by title or #autor"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
@@ -203,7 +203,7 @@ const Dashboard = ({Data, role}) => {
           </div>
 
           <div className="pb-2 pt-2 w-auto max-h-screen shadow-2xl border border-gray-200 rounded-lg overflow-y-auto custom-scrollbar" ref={scrollRef}>
-            {Data.length > 0 ? cards : <h1>No Projects found !</h1>}
+            {Data.length > 0 ? cards : <h1 className="flex justify-center pt-2">No Projects found !</h1>}
           </div>
 
           <div className="flex justify-center space-x-2">
