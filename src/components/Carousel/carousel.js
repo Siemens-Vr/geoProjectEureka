@@ -4,9 +4,8 @@ const Carousel = ({ mediaFiles }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFading, setIsFading] = useState(false);
 
-    // Vérification si mediaFiles est nul ou vide
     if (!mediaFiles || mediaFiles.length === 0) {
-        return <p>No media available</p>; // Message à afficher si aucun média n'est disponible
+        return <p className="flex justify-center pt-2">No media available</p>; 
     }
 
     const handleNext = () => {
@@ -15,7 +14,7 @@ const Carousel = ({ mediaFiles }) => {
             setTimeout(() => {
                 setCurrentIndex((prevIndex) => prevIndex + 1);
                 setIsFading(false);
-            }, 300); // Durée de l'animation
+            }, 300);
         }
     };
 
@@ -25,7 +24,7 @@ const Carousel = ({ mediaFiles }) => {
             setTimeout(() => {
                 setCurrentIndex((prevIndex) => prevIndex - 1);
                 setIsFading(false);
-            }, 300); // Durée de l'animation
+            }, 300);
         }
     };
 
@@ -60,7 +59,7 @@ const Carousel = ({ mediaFiles }) => {
         <div className="relative">
             {renderMedia()}
 
-            {/* Bouton Précédent */}
+            {/* Button previous */}
             <button
                 className={`absolute top-1/2 left-0 transform text-white font-bold text-lg -translate-y-1/2 bg-light-blue p-2 rounded-full ${
                     currentIndex === 0 ? 'opacity-0' : ''
@@ -71,7 +70,7 @@ const Carousel = ({ mediaFiles }) => {
                 &lt;
             </button>
 
-            {/* Bouton Suivant */}
+            {/* Button next */}
             <button
                 className={`absolute top-1/2 right-0 transform text-white font-bold text-lg -translate-y-1/2 bg-light-blue p-2 rounded-full ${
                     currentIndex === mediaFiles.length - 1 ? 'opacity-0' : ''
@@ -81,8 +80,6 @@ const Carousel = ({ mediaFiles }) => {
             >
                 &gt;
             </button>
-
-            {/* Numéro du média actuel sur le nombre total */}
             <div className="absolute bottom-2 right-4 bg-black text-white text-sm px-2 py-1 rounded">
                 {currentIndex + 1} / {mediaFiles.length}
             </div>
