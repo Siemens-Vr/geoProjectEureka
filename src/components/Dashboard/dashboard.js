@@ -16,9 +16,9 @@ const Dashboard = ({Data, role}) => {
     navigate('/create-project');
   };
 
-
-  if (Data.length > 0) {} 
-
+  if (Data !== null || Data !== undefined) {
+    Data = []
+  } 
 
   const dataWithUnknownAutors = Data.map(item => ({
       ...item,
@@ -211,7 +211,7 @@ const Dashboard = ({Data, role}) => {
           </div>
         </div>
 
-      <div className="w-full md:w-1/6 flex justify-center md:justify-end pt-2 pl-2 pr-2">
+      <div className="w-full md:w-1/6 flex justify-center md:justify-end pt-2 pl-4 pr-4">
         <div>
         <button onClick={handleCreateProject} className="hover:bg-light-blue bg-gradient-to-br bg-medium-blue hover:bg-light-blue border-solid border-2 border-light-blue  font-bold text-white px-5 py-2 rounded-full ">Create project</button>
         </div>
