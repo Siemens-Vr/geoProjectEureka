@@ -16,7 +16,7 @@ const Dashboard = ({Data, role}) => {
     navigate('/create-project');
   };
 
-  if (Data !== null || Data !== undefined) {
+  if (Data === null || Data === undefined) {
     Data = []
   } 
 
