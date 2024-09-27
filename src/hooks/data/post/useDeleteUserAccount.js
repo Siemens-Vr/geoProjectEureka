@@ -1,12 +1,13 @@
 import {useState} from "react";
 import {axiosReq} from "../../../utils/axios";
 import useDisplayAlert from "../../useDisplayAlert";
-import { useNavigate } from "react-router-dom";
+import useLogOut from "../../useLogOut"
 
 const useDeleteUserAccount = () => {
     const [isLoadingDeleteAccount, setIsLoadingDeleteAccount] = useState(false);
     const [message, setMessage] = useState({ code: null, description: null });
-    const navigate = useNavigate();
+    const logOut = useLogOut();
+
     function sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
@@ -18,16 +19,14 @@ const useDeleteUserAccount = () => {
                 setMessage({code : response.status, description : response.data.message});
                 setIsLoadingDeleteAccount(false);
                 await sleep(2000);
-                navigate('/login');
+                logOut();
               }
           } catch (error) {
             setMessage({code : error.response.status, description : error.response.data.message});
             setIsLoadingDeleteAccount(false);
           }
     };
-
     const {alertBanner}= useDisplayAlert(message);
-
     return { handleDeleteAccount, isLoadingDeleteAccount, alertBannerDeleteAccount : alertBanner };
 };
 
