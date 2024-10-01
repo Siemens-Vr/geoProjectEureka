@@ -43,7 +43,7 @@ const MyAccountForm = ({ userInfosData }) => {
             id={input.id}
             type={input.type}
             size={input.size}
-            isDisable={!isEditable}
+            isDisable={input.id === "email"?true:!isEditable}
             options={input.type === "select" && input.options}
           />
       );
@@ -61,8 +61,8 @@ const MyAccountForm = ({ userInfosData }) => {
             {inputs}
           </div>
           {isEditable && (
-            <div className="mt-6 flex items-center justify-end gap-x-6 pb-2">
-              <ButtonValidationForm isLoading={isLoadingModificationUserInfos} size={"w-fit"} title={"Save"} />
+            <div className="mt-6 flex items-center justify-end gap-x-6 pb-4">
+              <ButtonValidationForm isLoading={isLoadingModificationUserInfos} isPasswordValid={isPasswordValid} size={"w-fit"} title={"Save"} />
             </div>
           )}
         </form>
@@ -74,7 +74,7 @@ const MyAccountForm = ({ userInfosData }) => {
                 onClick={() => {
                   setIsEditable(!isEditable);
                 }}
-                className={`rounded-md bg-blue-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-fit`}
+                className={`btn rounded-md bg-blue-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-fit border-none`}
               >
                 Edit Information
               </button>
