@@ -6,7 +6,7 @@ import useLogOut from "../../useLogOut"
 const useDeleteUserAccount = () => {
     const [isLoadingDeleteAccount, setIsLoadingDeleteAccount] = useState(false);
     const [message, setMessage] = useState({ code: null, description: null });
-    const logOut = useLogOut();
+    const {logout} = useLogOut();
 
     function sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
@@ -19,9 +19,10 @@ const useDeleteUserAccount = () => {
                 setMessage({code : response.status, description : response.data.message});
                 setIsLoadingDeleteAccount(false);
                 await sleep(2000);
-                logOut();
+                logout();
               }
           } catch (error) {
+            console.log(error)
             setMessage({code : error.response.status, description : error.response.data.message});
             setIsLoadingDeleteAccount(false);
           }
