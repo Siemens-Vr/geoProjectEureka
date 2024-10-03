@@ -7,6 +7,7 @@ import SignupPage from "../pages/signupPage";
 import LoginPage from "../pages/loginPage";
 import DashboardPage from "../pages/dashboardPage";
 import CreateProjectPage from "../pages/createProjectPage";
+import EditProjectPage from "../pages/editProjectPage"
 
 const Router = () => {
   return (
@@ -21,6 +22,7 @@ const Router = () => {
         <Route path="/my-account" element={<MyAccountPage/>}/>
         <Route path="/dashboard" element={<DashboardPage/>}/>
         <Route path="/create-project" element={<CreateProjectPage/>}/>
+        <Route path="/edit-project/:id" element={<EditProjectPage/>}/>
       </Routes>
     </BrowserRouter>
   );

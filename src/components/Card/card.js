@@ -1,13 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Carousel from "../Carousel/carousel";
 import ButtonWithVerification from "../ButtonWithVerification/buttonWithVerification";
 import useDeleteProject from "../../hooks/data/post/useDeleteProject";
 import useAuthentication from "../../hooks/useAuthentication";
 
-const Card = ({ mediaFiles, date, title, geology, geochemistry, geophysics, autor, id, datas, role, userId }) => {
+
+const Card = ({ mediaFiles, date, title, geology, geochemistry, geophysics, autor, id, datas, role, userId}) => {
     const { handleDeleteProject, isLoadingDeleteProject, alertBannerDeleteProject } = useDeleteProject();
     const {getUserInfosFromSessionStorage}=useAuthentication();
     const userInfos = getUserInfosFromSessionStorage();
+    
+    console.log(id)
+    const navigate = useNavigate()
+    const handleEditProject = (id) => {
+        navigate(`/edit-project/${id}`);
+      }; 
 
     const isPossibleDelete = role === "admin"? true : userId === userInfos.id ? true : false
     
@@ -38,10 +46,20 @@ const Card = ({ mediaFiles, date, title, geology, geochemistry, geophysics, auto
                 </div>
 
                 <div className="grid grid-cols-3 gap-4 pb-2">
-                    <div className="col-span-1"></div>
-                    <div className="col-span-1 flex items-center justify-center">
-                        <button className="col-start-2 btn bg-medium-blue hover:bg-light-blue text-white border-none" onClick={() => document.getElementById(`my_modal_${id}`).showModal()}>See more details</button>
-                    </div>
+                    <div className="col-span-1"></div>                    
+                    <div className="col-span-1 flex justify-center space-x-4">
+                    <button 
+                        className="btn bg-medium-green hover:bg-light-green text-white border-none px-4 py-2 rounded-md"
+                        onClick={() => handleEditProject(id)}>
+                        Edit Details
+                    </button>
+                    
+                    <button 
+                        className="btn bg-medium-blue hover:bg-light-blue text-white border-none px-4 py-2 rounded-md"
+                        onClick={() => document.getElementById(`my_modal_${id}`).showModal()}>
+                        See more details
+                    </button>
+                    
                     {isPossibleDelete && (
                         <div className="col-span-1 flex items-center justify-end pr-2">
                         <ButtonWithVerification 
@@ -50,7 +68,10 @@ const Card = ({ mediaFiles, date, title, geology, geochemistry, geophysics, auto
                             id={id} 
                         />
                         </div>
+
+                        
                     )}
+                    </div>
                 </div>
                 <dialog id={`my_modal_${id}`} className="modal">
                     <div className="modal-box">

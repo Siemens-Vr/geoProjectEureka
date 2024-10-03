@@ -96,10 +96,13 @@ const useEditProject = (id) => {
         formData.append('potentialTargets', e.target.elements.potentialTargets.value);
         formData.append('geophysicsComment', e.target.elements.geophysicsComment.value);
 
+        if (projectData && projectData.dataId) {
+            formData.append('dataId', projectData.dataId);
+        }
 
         try {
             // Use PUT method to update the project
-            const response = await axiosReq.put(`/api/projects/update`, formData, {
+            const response = await axiosReq.put(`/api/data/update`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
