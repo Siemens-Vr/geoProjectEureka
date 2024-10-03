@@ -20,7 +20,6 @@ const useEditProject = (id) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log('Project Id:', id);
         if (!id || typeof id !== 'string') {
             console.error('Invalid projectId:', id);
             return; // Early exit if projectId is invalid
@@ -55,7 +54,7 @@ const useEditProject = (id) => {
         return new Promise((resolve) => setTimeout(resolve, ms));
     }
 
-    const handleSubmit = async (e, selectedFiles) => {
+    const handleSubmit = async (e, selectedFiles, dataId) => {
         e.preventDefault();
         setIsLoading(true);
 
@@ -95,10 +94,9 @@ const useEditProject = (id) => {
         formData.append('instrumentUsed', e.target.elements.instrumentUsed.value);
         formData.append('potentialTargets', e.target.elements.potentialTargets.value);
         formData.append('geophysicsComment', e.target.elements.geophysicsComment.value);
+        formData.append('dataId', dataId);
+        formData.append('id', id);
 
-        if (projectData && projectData.dataId) {
-            formData.append('dataId', projectData.dataId);
-        }
 
         try {
             // Use PUT method to update the project

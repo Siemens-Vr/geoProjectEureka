@@ -10,8 +10,6 @@ const Card = ({ mediaFiles, date, title, geology, geochemistry, geophysics, auto
     const { handleDeleteProject, isLoadingDeleteProject, alertBannerDeleteProject } = useDeleteProject();
     const {getUserInfosFromSessionStorage}=useAuthentication();
     const userInfos = getUserInfosFromSessionStorage();
-    
-    console.log(id)
     const navigate = useNavigate()
     const handleEditProject = (id) => {
         navigate(`/edit-project/${id}`);

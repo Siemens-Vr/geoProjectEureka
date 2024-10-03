@@ -34,12 +34,20 @@ const EditProjectPage = () => {
             Project data is loading ...</div>; // Loading indicator until project data is fetched
     }
 
+    const formatDate = (date) => {
+        const d = new Date(date);
+        const month = `${d.getMonth() + 1}`.padStart(2, '0');
+        const day = `${d.getDate()}`.padStart(2, '0');
+        const year = d.getFullYear();
+        return [year, month, day].join('-');
+    };    
+
     return (
        
         <div className='min-h-screen flex flex-col'>
             <Header connected={userInfos ? true : false} role={userInfos?.role}/>
             <main className='flex-grow max-w-7xl mx-auto p-6 space-y-8'>
-        <form onSubmit={(e) => handleSubmit(e, selectedFiles)}
+        <form onSubmit={(e) => handleSubmit(e, selectedFiles, projectData.dataId)}
         className='max-w-7xl mx-auto p-6 space-y-8 bg-white shadow-lg rounded-md'>
             {alertBanner && alertBanner}
 
@@ -80,7 +88,7 @@ const EditProjectPage = () => {
                 type="text"
                 name="projectName"
                 defaultValue={projectData.title}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='ProjectName'
             />
@@ -90,7 +98,6 @@ const EditProjectPage = () => {
                 type="text"
                 name="location"
                 defaultValue={projectData.location}
-                required
                 className='border p-2 rounded-md'
                 placeholder='location'
 
@@ -100,7 +107,6 @@ const EditProjectPage = () => {
                 type="text"
                 name="sampleType"
                 defaultValue={projectData.sampleType}
-                required
                 className='border p-2 rounded-md'
                 placeholder='sampleType'
             />
@@ -109,8 +115,7 @@ const EditProjectPage = () => {
             <input
                 type="date"
                 name="collectionDate"
-                defaultValue={projectData.collectionDate}
-                required
+                defaultValue={formatDate(projectData.collectionDate)}
                 className='border p-2 rounded-md'
                 placeholder='collectionDate'
             />
@@ -124,7 +129,6 @@ const EditProjectPage = () => {
                 type="number"
                 name="depth"
                 defaultValue={projectData.depth}
-                required
                 className='border p-2 rounded-md'
                 placeholder='Depth '
             />
@@ -134,7 +138,7 @@ const EditProjectPage = () => {
                 type="number"
                 name="temperature"
                 defaultValue={projectData.temperature}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='temperature'
             />
@@ -144,7 +148,7 @@ const EditProjectPage = () => {
                 type="number"
                 name="pH"
                 defaultValue={projectData.pH}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='pH value'
             />
@@ -154,7 +158,7 @@ const EditProjectPage = () => {
                 type="number"
                 name="electricalConductivity"
                 defaultValue={projectData.electricalConductivity}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='Electrical Conductivity'
             />
@@ -163,7 +167,7 @@ const EditProjectPage = () => {
             <textarea
                 name="geochemistryComment"
                 defaultValue={projectData.geochemistryComment}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='Geochemistry comment'
             />
@@ -177,7 +181,7 @@ const EditProjectPage = () => {
             <textarea
                 name="lithology"
                 defaultValue={projectData.lithology}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='lithology'
             />
@@ -186,7 +190,7 @@ const EditProjectPage = () => {
             <textarea
                 name="alteration"
                 defaultValue={projectData.alteration}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='alteration'
             />
@@ -195,7 +199,7 @@ const EditProjectPage = () => {
             <textarea
                 name="mineralogy"
                 defaultValue={projectData.mineralogy}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='mineralogy'
             />
@@ -204,7 +208,7 @@ const EditProjectPage = () => {
             <textarea
                 name="geochimicalAnalysis"
                 defaultValue={projectData.geochimicalAnalysis}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='geochemical analysis'
             />
@@ -213,7 +217,7 @@ const EditProjectPage = () => {
             <textarea
                 name="texture"
                 defaultValue={projectData.texture}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='texture'
             />
@@ -222,7 +226,7 @@ const EditProjectPage = () => {
             <textarea
                 name="hydrothermalFeatures"
                 defaultValue={projectData.hydrothermalFeatures}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='hydrothermal Features'
             />
@@ -231,7 +235,7 @@ const EditProjectPage = () => {
             <textarea
                 name="structure"
                 defaultValue={projectData.structure}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='structure'
             />
@@ -240,7 +244,7 @@ const EditProjectPage = () => {
             <textarea
                 name="geologyComment"
                 defaultValue={projectData.geologyComment}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='Geology comment'
             />
@@ -255,7 +259,7 @@ const EditProjectPage = () => {
                 type="text"
                 name="method"
                 defaultValue={projectData.method}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='Method'
             />
@@ -264,8 +268,7 @@ const EditProjectPage = () => {
             <input
                 type="date"
                 name="surveyDate"
-                defaultValue={projectData.surveyDate}
-                required
+                defaultValue={formatDate(projectData.surveyDate)}
                 className='border p-2 rounded-md'
                 placeholder='Survey date'
             />
@@ -275,7 +278,6 @@ const EditProjectPage = () => {
                 type="number"
                 name="depthOfPenetrationMeters"
                 defaultValue={projectData.depthOfPenetrationMeters}
-                required
                 className='border p-2 rounded-md'
                 placeholder='Depth of Penetration in metres'
             />
@@ -285,7 +287,6 @@ const EditProjectPage = () => {
                 type="number"
                 name="resolutionsMeters"
                 defaultValue={projectData.resolutionsMeters}
-                required
                 className='border p-2 rounded-md'
                 placeholder='Resolution meters'
             />
@@ -294,7 +295,7 @@ const EditProjectPage = () => {
             <textarea
                 name="measuredParameters"
                 defaultValue={projectData.measuredParameters}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='measured Parameters'
             />
@@ -303,7 +304,7 @@ const EditProjectPage = () => {
             <textarea
                 name="recoveredPropertiesOfInterest"
                 defaultValue={projectData.recoveredPropertiesOfInterest}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='recovered Properties of Interest'
             />
@@ -313,7 +314,7 @@ const EditProjectPage = () => {
                 type="text"
                 name="instrumentUsed"
                 defaultValue={projectData.instrumentUsed}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='instrument Used'
             />
@@ -322,7 +323,7 @@ const EditProjectPage = () => {
             <textarea
                 name="potentialTargets"
                 defaultValue={projectData.potentialTargets}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='potential Targets'
             />
@@ -331,7 +332,7 @@ const EditProjectPage = () => {
             <textarea
                 name="geophysicsComment"
                 defaultValue={projectData.geophysicsComment}
-                required
+                
                 className='border p-2 rounded-md'
                 placeholder='Geophysics comment'
             />
