@@ -1,15 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const FilesUploader = ({handleFileSelection}) => {
+const FilesUploader = ({handleFileSelection , initialFiles=[]}) => {
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [previews, setPreviews] = useState([]);
     const [totalSize, setTotalSize] = useState(0); 
 
     const MAX_TOTAL_SIZE = 2 * 1024 * 1024 * 1024; // 2 Go max
 
+    useEffect(() => {
+        if (initialFiles.length > 0) {
+            setSelectedFiles(initialFiles);
+            const initialPreviews = initialFiles.map(file => ({
+                url: file.url || URL.createObjectURL(file),
+                type: file.type.startsWith('video') ? 'video' : 'image'
+            }));
+            setPreviews(initialPreviews);
+            const initialTotalSize = initialFiles.reduce((sum, file) => sum + (file.size || 0), 0);
+            setTotalSize(initialTotalSize);
+        }
+    }, [initialFiles]);
+
+
     // Fonction de gestion des fichiers sélectionnés
     const handleFileChange = (e) => {
         const files = Array.from(e.target.files); // Transform FileList into a tab
+        const newFiles= Array.from(e.target.files); //declare new files
         let currentTotalSize = totalSize;
 
         // Calcul size
@@ -22,6 +37,29 @@ const FilesUploader = ({handleFileSelection}) => {
             alert('Total file size exceeds the 2 GB limit!');
             return;
         }
+
+        const updatedFiles = [...selectedFiles, ...newFiles];
+        setSelectedFiles(updatedFiles);
+        setTotalSize(currentTotalSize);
+
+        const newPreviews = newFiles.map(file => ({
+            url: URL.createObjectURL(file),
+            type : file.type.startsWith('video') ? 'video' : 'image'
+        }));
+        setPreviews([...previews, ...newPreviews]);
+        handleFileSelection(updatedFiles)
+
+        const removeFile = (index) => {
+            const updatedFiles = selectedFiles.filter((_, i) => i !== index);
+            const updatedPreviews = previews.filter((_, i) => i !== index);
+            const updatedTotalSize = updatedFiles.reduce((sum, file) => sum + file.size, 0);
+    
+            setSelectedFiles(updatedFiles);
+            setPreviews(updatedPreviews);
+            setTotalSize(updatedTotalSize);
+            handleFileSelection(updatedFiles);
+        };
+
 
         setTotalSize(currentTotalSize);
         setSelectedFiles(files);
@@ -68,8 +106,8 @@ const FilesUploader = ({handleFileSelection}) => {
                                 controls
                                 style={{ width: '150px', height: '150px', objectFit: 'cover' }}
                             />
-                        )
-                    ))}
+                         ) 
+                    ))};
                 </div>
             </div>
         </div>

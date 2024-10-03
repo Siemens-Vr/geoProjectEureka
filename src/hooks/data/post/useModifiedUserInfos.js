@@ -20,6 +20,7 @@ const useModifiedUserInfos = () => {
             if (response) {
                 setMessage({code : response.status, description : response.data.message});
                 setIsLoadingModificationUserInfos(false);
+                window.location.reload();
               }
           } catch (error) {
             setMessage({code : error.response.status, description : error.response.data.message});
