@@ -32,7 +32,7 @@ const useEditProject = (id) => {
                 const token = sessionStorage.getItem('token'); // Get the JWT token from sessionStorage
     
                 // Make the request with the Authorization header
-                const response = await axiosReq.get(`/api/data/${id}`, {
+                const response = await axiosReq.get(`/api/data/ProjectById/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`, // Add token to Authorization header
                     }
