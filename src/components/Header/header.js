@@ -49,7 +49,7 @@ const Header = ({connected, role}) => {
       <header className="bg-light-grey relative shadow-lg px-3 py-2">
       <nav className="flex justify-between">
 
-        <div className="w-[130px] md:w-[200px] flex items-center">
+        <div className="w-[130px] md:w-[200px] flex items-center ml-10">
           <Link to={'/'}>
               <img src={logo} className="w-20" alt="logo"/>
           </Link>
@@ -76,7 +76,7 @@ const Header = ({connected, role}) => {
               :
               <ConnexionButton
                 handleOnClick={login}
-                title={"Sign up"}
+                title={"Sign in"}
               />
             }
           </div>

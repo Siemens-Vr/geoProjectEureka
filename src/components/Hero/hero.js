@@ -1,35 +1,17 @@
-import React from "react";
-import TitleFade from "../TitleFade/titleFade";
-import ImageHero from "../../assets/images/th.jpg"
+import React from 'react';
+import CustomCarousel from './CustomCarousel';
+import heroContent from './heroContent';
 
-const Hero = ({name, heroContent}) => {
-
-    if(heroContent) {
-        return(
-            <div className="hero min-h-screen bg-light-grey">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <img src={heroContent?.image} alt="" className="sm:max-w-sm rounded-lg shadow-2xl" />
-                    <div>
-                    <TitleFade title={"Welcome " + (name ? name : "")}/>
-                    <p className="py-6">{heroContent?.description}</p>
-                    </div>
-                </div>
-            </div>
-        );
-    } else {
-        return(
-            <div className="hero min-h-screen bg-light-grey">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <img src={ImageHero} alt="" className="sm:max-w-sm rounded-lg shadow-2xl" />
-                    <div>
-                    <TitleFade title={"Welcome " + (name ? name : "to the geothermal survey portal")}/>
-                    <p className="py-6">{"Tomorrow's future is decided today."}</p>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-    
+const Hero = ({ className }) => {
+  return (
+    <div className={`hero ${className} bg-light-grey`}>
+      <CustomCarousel
+        images={heroContent.images}
+        title={heroContent.title}
+        subtitle={heroContent.subtitle}
+      />
+    </div>
+  );
 }
 
 export default Hero;

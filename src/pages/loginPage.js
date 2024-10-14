@@ -19,7 +19,7 @@ const LoginPage = () => {
                             />
                     </Link>
                         <h2 className="text-center text-2xl font-bold leading-9 tracking-tight ">
-                        Sign up to your account
+                        Sign in to your account
                         </h2>
                 </div>
 
@@ -28,7 +28,7 @@ const LoginPage = () => {
                 <p className="mt-1 text-center text-sm text-gray-500">
                     No account ?{' '}
                     <Link to="/signup" className="font-semibold leading-6 text-medium-blue hover:text-light-blue">
-                    Sign in
+                    Sign Up
                     </Link>
                 </p>
             </div>
