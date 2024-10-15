@@ -9,8 +9,6 @@ import DashboardPage from "../pages/dashboardPage";
 import CreateProjectPage from "../pages/createProjectPage";
 import EditProjectPage from "../pages/editProjectPage"
 import DetailsPage from "../pages/Detailspage";
-import AboutUsPage from "../pages/AboutUsPage";
-import ContactPage from "../pages/ContactPage";
 
 const Router = () => {
   return (
@@ -27,10 +25,6 @@ const Router = () => {
         <Route path="/create-project" element={<CreateProjectPage/>}/>
         <Route path="/edit-project/:id" element={<EditProjectPage/>}/>
         <Route path="/details" element={<DetailsPage/>}/>
-        <Route path="/about-us" element={<AboutUsPage/>}/>
-        <Route path="/contact" element={<ContactPage/>}/>
-
-
       </Routes>
     </BrowserRouter>
   );

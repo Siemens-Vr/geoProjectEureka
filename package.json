@@ -14,8 +14,14 @@
     "react-apexcharts": "^1.4.1",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.22.3",
+    "react-slick": "^0.30.2",
     "sass": "^1.43.4",
+<<<<<<< HEAD
     "serve": "^14.2.3",
+=======
+    "serve": "^14.2.1",
+    "slick-carousel": "^1.8.1",
+>>>>>>> 035441a18e8bf5201e34ca79af40aa718b77ddbc
     "socket.io-client": "^4.7.5"
   },
   "optionalDependencies": {

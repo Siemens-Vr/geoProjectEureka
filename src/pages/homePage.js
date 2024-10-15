@@ -3,7 +3,8 @@ import Header from "../components/Header/header";
 import Footer from "../components/Footer/footer";
 import Hero from "../components/Hero/hero";
 import useAuthentication from "../hooks/useAuthentication";
-import heroContent from "../components/Hero/heroContent";
+// import Sponsors from "../components/Sponsors/Sponsors"
+// import heroContent from "../components/Hero/heroContent";
 
 
 const HomePage = () => {
@@ -13,9 +14,10 @@ const HomePage = () => {
         <Fragment>
 
             <Header connected={userInfos ? true : false} role={userInfos?.role}/>
-            <Hero name={userInfos?.firstName} heroContent={heroContent.find((item)=> item.role === userInfos?.role)} />
-
-            <Footer/>
+            {/* <Hero name={userInfos?.firstName} heroContent={heroContent.find((item)=> item.role === userInfos?.role)} /> */}
+            <Hero  className="h-[80vh]"/>
+            {/* {userInfos && <Sponsors />}  This will render Sponsors if userInfos exists */}
+            <Footer />
         </Fragment>
     )
 }
