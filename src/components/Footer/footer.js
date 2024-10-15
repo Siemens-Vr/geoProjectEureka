@@ -3,7 +3,7 @@ import logo from "../../assets/images/Siemens-logo.png"
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-gray-600 text-base-content">
+        <footer className="footer p-10 bg-gray-600 text-base-content mt-5">
             <aside>
                 <img src={logo} className="w-72 max-w-96" alt="logo"></img>
             </aside> 

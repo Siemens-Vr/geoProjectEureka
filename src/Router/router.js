@@ -9,6 +9,7 @@ import DashboardPage from "../pages/dashboardPage";
 import CreateProjectPage from "../pages/createProjectPage";
 import EditProjectPage from "../pages/editProjectPage"
 import DetailsPage from "../pages/Detailspage";
+import ContactsPage from "../pages/contactsPage";
 
 const Router = () => {
   return (
@@ -25,6 +26,7 @@ const Router = () => {
         <Route path="/create-project" element={<CreateProjectPage/>}/>
         <Route path="/edit-project/:id" element={<EditProjectPage/>}/>
         <Route path="/details" element={<DetailsPage/>}/>
+        <Route path="/contact" element={<ContactsPage/>}/>
       </Routes>
     </BrowserRouter>
   );
