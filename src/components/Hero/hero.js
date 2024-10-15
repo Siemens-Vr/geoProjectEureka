@@ -4,18 +4,19 @@ import heroContent from './heroContent';
 import Homecard from '../../pages/homeCard';
 
 const Hero = ({ className }) => {
-  return (<>
-    <div className={`hero ${className} bg-light-greyflex flex-col items-center`}>
-      <CustomCarousel 
+  return (
+    <div className={`hero ${className} bg-light-grey flex flex-col items-center relative`}>
+      <CustomCarousel
         images={heroContent.images}
         title={heroContent.title}
         subtitle={heroContent.subtitle}
       />
-      <div className="w-full max-w-4xl  mt-80 px-4 sm:px-6 lg:px-8">
+      
+      {/* Position the Homecard absolutely at the bottom */}
+      <div className="absolute bottom-0 left-0 right-0 flex justify-center mt-20">
         <Homecard />
       </div>
     </div>
-    </>
   );
 }
 
