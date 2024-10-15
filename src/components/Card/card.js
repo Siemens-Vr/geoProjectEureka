@@ -11,15 +11,16 @@ const Card = ({ mediaFiles, date, title, geology, geochemistry, geophysics, auto
     const { getUserInfosFromSessionStorage } = useAuthentication();
     const userInfos = getUserInfosFromSessionStorage();
     const navigate = useNavigate()
+    
     const handleEditProject = (id) => {
         navigate(`/edit-project/${id}`);
       }; 
 
     const isPossibleDelete = role === "admin" ? true : userId === userInfos.id;
     
-    const handleSeeMoreDetails = (id) => {
+    const handleSeeMoreDetails = (id, mediaFiles) => {
     
-        navigate(`/details`, { state : {itemId: id}});
+        navigate(`/details`, { state : {itemId: id , mediaFiles:mediaFiles}});
     };
 
     return (
@@ -59,7 +60,7 @@ const Card = ({ mediaFiles, date, title, geology, geochemistry, geophysics, auto
                     
                     <button 
                         className="btn bg-medium-blue hover:bg-light-blue text-white border-none px-4 py-2 rounded-md"
-                        onClick={() => handleSeeMoreDetails(id)}>
+                        onClick={() => handleSeeMoreDetails(id, mediaFiles)}>
                         See more details
                     </button>
                     

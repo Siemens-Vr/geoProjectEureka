@@ -9,6 +9,8 @@ import DashboardPage from "../pages/dashboardPage";
 import CreateProjectPage from "../pages/createProjectPage";
 import EditProjectPage from "../pages/editProjectPage"
 import DetailsPage from "../pages/Detailspage";
+import AboutUsPage from "../pages/AboutUsPage";
+import ContactPage from "../pages/ContactPage";
 
 const Router = () => {
   return (
@@ -17,14 +19,18 @@ const Router = () => {
 
         {/* GENERAL ROUTES */}
         <Route path="*" element={<Error404/>} />
-        <Route path="/login" element={<LoginPage/>} />
-        <Route path="/signup" element={<SignupPage/>} />
+        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/signup" element={<SignupPage/>}/>
         <Route path="" element={<HomePage />} />
         <Route path="/my-account" element={<MyAccountPage/>}/>
         <Route path="/dashboard" element={<DashboardPage/>}/>
         <Route path="/create-project" element={<CreateProjectPage/>}/>
         <Route path="/edit-project/:id" element={<EditProjectPage/>}/>
         <Route path="/details" element={<DetailsPage/>}/>
+        <Route path="/about-us" element={<AboutUsPage/>}/>
+        <Route path="/contact" element={<ContactPage/>}/>
+
+
       </Routes>
     </BrowserRouter>
   );
