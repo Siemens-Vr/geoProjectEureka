@@ -22,8 +22,8 @@ const Router = () => {
 
         {/* GENERAL ROUTES */}
         <Route path="*" element={<Error404/>} />
-        <Route path="/login" element={<LoginPage/>} />
-        <Route path="/signup" element={<SignupPage/>} />
+        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/signup" element={<SignupPage/>}/>
         <Route path="" element={<HomePage />} />
         <Route path="/my-account" element={<MyAccountPage/>}/>
         <Route path="/dashboard" element={<DashboardPage/>}/>
