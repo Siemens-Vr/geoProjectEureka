@@ -11,6 +11,9 @@ import EditProjectPage from "../pages/editProjectPage"
 import DetailsPage from "../pages/Detailspage";
 import ContactPage from "../pages/ContactPage";
 import AboutUsPage from "../pages/AboutUsPage";
+import PrivacypolicyPage from "../pages/PrivacypolicyPage";
+import TermsOfUsePage from "../pages/TermsOfUsePage";
+
 
 const Router = () => {
   return (
@@ -28,7 +31,9 @@ const Router = () => {
         <Route path="/edit-project/:id" element={<EditProjectPage/>}/>
         <Route path="/details" element={<DetailsPage/>}/>
         <Route path="/contact" element={<ContactPage/>}/>
-        <Route path="about-us" element={<AboutUsPage/>}/>
+        <Route path="/about-us" element={<AboutUsPage/>}/>
+        <Route path="/privacy-policy" element={<PrivacypolicyPage/>}/>
+        <Route path="/term-of-use" element={<TermsOfUsePage/>}/>
       </Routes>
     </BrowserRouter>
   );

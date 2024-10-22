@@ -4,6 +4,9 @@ import useGetProject from '../hooks/data/get/useGetProjects';
 import Footer from "../components/Footer/footer";
 import Carousel from "../components/Carousel/carousel";  // Import the Carousel component
 import axios from 'axios';  // Add axios to send HTTP requests
+import useAuthentication from '../hooks/useAuthentication';
+import Header from '../components/Header/header';
+
 
 const DetailsPage = () => {
     const location = useLocation();
@@ -12,7 +15,10 @@ const DetailsPage = () => {
     const navigate = useNavigate();
 
     const [analysisResult, setAnalysisResult] = useState(null);  // State to store analysis result
-    const [isAnalyzing, setIsAnalyzing] = useState(false);       // State to track analysis in progress
+    const [isAnalyzing, setIsAnalyzing] = useState(false); 
+    const { getUserInfosFromSessionStorage } = useAuthentication();
+    const userInfos = getUserInfosFromSessionStorage();
+   
 
     const handleCancel = () => {
         navigate('/dashboard');
@@ -49,6 +55,10 @@ const DetailsPage = () => {
     if (!data) return <div>No data available</div>;
 
     return (
+
+        <>
+        <Header connected={userInfos ? true : false} role={userInfos?.role}/>
+    
         <main className="bg-gray-100 min-h-screen p-6">
             {/* Header */}
             <h3 className="text-2xl font-bold text-blue-600 flex items-center justify-center mb-2">
@@ -153,6 +163,7 @@ const DetailsPage = () => {
             <hr  mt-5 mb-5/>
             <Footer />
         </main>
+        </>
     );
 };
 
