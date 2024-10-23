@@ -6,7 +6,7 @@
     "@heroicons/react": "^2.1.1",
     "@react-icons/all-files": "^4.1.0",
     "apexcharts": "^3.47.0",
-    "axios": "^1.7.7",
+    "axios": "^0.24.0",
     "cross-env": "^7.0.3",
     "heroicons-react": "^1.4.1",
     "my-app": "file:",
@@ -16,12 +16,8 @@
     "react-router-dom": "^6.22.3",
     "react-slick": "^0.30.2",
     "sass": "^1.43.4",
-<<<<<<< HEAD
-    "serve": "^14.2.3",
-=======
     "serve": "^14.2.1",
     "slick-carousel": "^1.8.1",
->>>>>>> 035441a18e8bf5201e34ca79af40aa718b77ddbc
     "socket.io-client": "^4.7.5"
   },
   "optionalDependencies": {
@@ -32,7 +28,7 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^7.2.1",
     "daisyui": "^4.7.3",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "^5.0.0",
     "tailwindcss": "^3.4.1"
   },
   "scripts": {
