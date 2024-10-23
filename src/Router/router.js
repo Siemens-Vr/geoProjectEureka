@@ -11,6 +11,9 @@ import EditProjectPage from "../pages/editProjectPage"
 import DetailsPage from "../pages/Detailspage";
 import ContactPage from "../pages/ContactPage";
 import AboutUsPage from "../pages/AboutUsPage";
+import Team from "../team/teamCard";
+import AddTeamMember from "../team/teamMemberPage";
+import Profile from "../team/teamProfile";
 
 const Router = () => {
   return (
@@ -29,6 +32,9 @@ const Router = () => {
         <Route path="/details" element={<DetailsPage/>}/>
         <Route path="/contact" element={<ContactPage/>}/>
         <Route path="about-us" element={<AboutUsPage/>}/>
+        <Route path="/teams" element={<Team/>}/>
+        <Route path="add-team-member" element={<AddTeamMember/>}/>
+        <Route path="/profile-team" element={<Profile/>}/>
       </Routes>
     </BrowserRouter>
   );
