@@ -1,165 +1,42 @@
-import React, { useState } from 'react';
-import SiemensLogo from '../assets/images/Siemens-logo.png';
-import { Link } from "react-router-dom";
-import useAuthentication from '../hooks/useAuthentication';
-import Header from '../components/Header/header';
+import React from "react";
 
-
-const Footer = () => {
-  return (
-      <footer className="footer p-10 bg-sky-900 text-base-content mt-5">
-          <aside>
-          <img src={SiemensLogo} className="w-72 max-w-96" alt="logo" />
-          </aside> 
-          <nav>
-              <h6 className="footer-title">Company</h6> 
-              <a className="link link-hover" alt="link" href="https://vmlab.dkut.ac.ke">Home site</a>
-              <Link className="link link-hover" to="/about-us">About us</Link>
-              <Link className="link link-hover" to="/contact">Contact</Link>
-          </nav> 
-          <nav>
-              <h6 className="footer-title">Legal</h6> 
-              <Link className="link link-hover" to="/term-of-use">Terms of use</Link>
-              <Link className="link link-hover" to="/privacy-policy">Privacy policy</Link>
-              <Link className="link link-hover" to="/cookie-policy">Cookie policy</Link>
-          </nav>
-      </footer>
-  );
-}
-
-
-
-const Card = ({ className, children }) => (
-  <div className={`bg-gray-100 rounded-lg shadow-md ${className}`}>
-    {children}
-  </div>
-);
-
-const CardHeader = ({ children }) => (
-  <div className="px-6 py-4 border-b border-gray-300">
-    {children}
-  </div>
-);
-
-const CardContent = ({ children }) => (
-  <div className="px-6 py-4">
-    {children}
-  </div>
-);
-
-const CardTitle = ({ children }) => (
-  <h3 className="text-xl font-semibold text-gray-800">
-    {children}
-  </h3>
-);
-
-const CardDescription = ({ children }) => (
-  <p className="text-gray-600">
-    {children}
-  </p>
-);
-
-export default function AboutUsPage() {
-  const [showFullDescription, setShowFullDescription] = useState(false);
-  const [expandedCard, setExpandedCard] = useState(null);
-  const {getUserInfosFromSessionStorage}=useAuthentication();
-  const userInfos = getUserInfosFromSessionStorage();
-
-  const cardData = [
-    {
-      title: "What We Do",
-      shortDesc: "We develop AR-D2D-IOT-based platforms for capturing, modeling, and sharing geothermal site data in near real-time.",
-      fullDesc: "Locating geothermal resources is both an Art and a Science. We propose to develop a model that hybridize Augmented Reality, Internet of Things and Device-to-Device(D2D) data sharing infrastructure technologies to capture, model and share the site data in near real time. Visualizing data in 3D will allow users to uncover trends and patterns that may not be immediately visible with 2D visualizations. While the bulk of the data manipulation and analysis will still be manual, the AR-3D data visualizations will enable the user to make observations in near real time. The product will involve direct communications between users for content distribution to their mobile devices."
-    },
-    {
-      title: "Our Goal",
-      shortDesc: "To enhance geothermal exploration efficiency and reduce the time needed for data analysis and decision-making.",
-      fullDesc: "Geothermal energy has proven to be reliable, clean and safe, and therefore, its use for power production, heating and cooling is increasing. It is a power source that produces electricity with minimal environmental impact. Exploration activities are going on in different parts of Africa including the Great Rift Valley. With geothermal contributing only 30.87% of the total installed capacity in Kenya, to reduce the overdependence on fossil fuel and hydropower plants, by 2030 Kenya aims to have 5,530 MW of geothermal power or 51% of total capacity. This will make it Kenya's largest source of clean energy by 2030. We propose to use AR and IoT technologies to develop an AR-D2D-IOT-based platform for capturing, modeling and sharing of site data in near real time. Visualizing data in 3D allows users to uncover trends."
-    },
-    {
-      title: "Our Innovation",
-      shortDesc: "We combine AR, D2D, and IoT techniques to develop a process that more accurately identifies sites for geothermal exploration.",
-      fullDesc: "The future of research and development in the geothermal sector will be driven by data informed decisions and research built upon the quantifiable outcomes of previous endeavors. The existing content distribution networks of geothermal data are cloud-based and highly-centralized. Our product will enable direct communications between users, distributing content to their mobile phones, tablets or personal computers reducing the time for data/content analysis by stakeholders in the geothermal exploration. The geothermal data will be transmitted to other users with or without the internet, hence the terminals will communicate directly exchanging content. Our product uses Augmented Reality (AR), Device to Device (D2D) and Internet of Things (IoT) techniques in analyzing geospatial data to develop a process to more accurately identify sites for geothermal exploration while reducing cost and time. The AR, D2D and IoT methods are expected to be efficient and reliable during modeling, analysis and presentation. The automatic data modeling approach requires an understanding of indicator parameters that indicate the existence and nonexistence of a geothermal site."
-    },
-    {
-      title: "Market Position",
-      shortDesc: "We complement existing technologies, enhancing decision-makers' experience in geothermal exploration projects.",
-      fullDesc: "The global geothermal energy market size was valued at 6.6 billion US dollars in 2021, and the geothermal energy industry is projected to reach 9.4 billion US dollar by 2027, growing at a compound annual rate of 5.9% from 2022 to 2027. Increasing demand for constant power supply among residential, commercial, and industrial sectors, and growing demand for electricity generation through sustainable means in industries are the major driving factors for the geothermal energy market. The leading players in the global geothermal energy market include Ormat (US), Mitsubishi Heavy Industries (Japan), Baker Hughes Company (US), NIBE Group (Sweden), and SLB (US). Various financial partners have played a key role in the development of geothermal resources in Kenya. Kenya Electricity Generating Company and Geothermal Development Company, together with the Independent Power Producers, aim at raising the country's geothermal output from the current installed capacity of about 1000 MW to 5000 MW by 2030. Our product will complement the existing technologies to enhance the decision makers' experience before investing or abandoning the project. We foresee less competition and more collaboration with the leading players."
-    }
-  ];
-
-  return (<>
-  <Header connected={userInfos ? true : false} role={userInfos?.role}/>
-    <div className="min-h-screen bg-white text-gray-800">
-      <div className="max-w-6xl mx-auto p-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="md:col-span-2">
-            <h1 className="text-4xl font-bold mb-4">About Our Project</h1>
-            <p className="mb-4">
-              We aim to revolutionize geothermal exploration using cutting-edge technologies. Our project focuses on harnessing the vast geothermal potential in Africa.
-            </p>
-            <button 
-              className="text-blue-600 hover:text-blue-800 flex items-center"
-              onClick={() => setShowFullDescription(!showFullDescription)}
-            >
-              Learn More <span className="ml-1">→</span>
-            </button>
-            
-            {showFullDescription && (
-              <div className="mt-4 text-sm text-gray-600">
-                <p>There is a vast and untapped geothermal potential in Africa. The Kenyan Rift valley forms part of the larger East Africa Rift system (EARS) which runs from Afar triple junction in Djibouti to Beira in Mozambique. In South Africa, the presence of over 87 hot springs are surface manifestations of accessible underground hydrothermal reservoirs in the Cape Fold Belt, across the Karoo, and in the Limpopo Belt.</p>
-                <p className="mt-2">The need to meet world energy demands while preserving a sustainable environment has resulted in a shift of focus to renewable energy sources. In Kenya, the total installed capacity as of June 2022 stood at 3,074.34 MW with geothermal contributing 949.13MW, accounting for 30.87% of the total installed capacity.</p>
-                <p className="mt-2">Our project aims to use Augmented Reality (AR), Device to Device (D2D) communication, Internet of Things (IoT), and User Data Visualization technologies to extend the human senses in capturing and modeling geothermal sites for surface and subsurface exploration in near real-time.</p>
-              </div>
-            )}
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-              {cardData.map((card, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <CardTitle>{card.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>
-                      {card.shortDesc}
-                    </CardDescription>
-                    <button 
-                      className="text-blue-600 hover:text-blue-800 flex items-center mt-2"
-                      onClick={() => setExpandedCard(expandedCard === card.title ? null : card.title)}
-                    >
-                      Learn More <span className="ml-1">→</span>
-                    </button>
-                    {expandedCard === card.title && (
-                      <div className="mt-2 text-sm text-gray-600">
-                        {card.fullDesc}
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-          <div>
-            <Card>
-              <CardHeader>
-                <CardTitle>Our Impact</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <img src="/assets/images/Eureka.png" alt="Eureka - Revolutionizing Geothermal Exploration" className="w-full mb-4" />
-                <CardDescription>
-                  Revolutionizing Geothermal Exploration
-                </CardDescription>
-                <p className="mt-2 text-sm text-gray-600">
-                  Our technology aims to significantly reduce exploration costs and time, making geothermal energy more accessible and viable.
+const AboutUs = () => {
+    return (
+        <div className="about-us min-h-screen bg-gradient-to-b from-emerald-500 to-emerald-100 p-8">
+            <div className="max-w-4xl mx-auto bg-white bg-opacity-90 rounded-lg shadow-lg p-8">
+                <h1 className="text-3xl font-bold text-blue-600 mb-6">Virtual Mechatronics Lab</h1>
+                <p className="text-gray-700 mb-8">
+                    Our lab leverages the latest technologies to create highly detailed and interactive simulations of mechatronic systems.
+                    This innovative approach significantly enhances the design, development, and deployment processes, resulting in more efficient, effective, and groundbreaking solutions in the field of mechatronics.
                 </p>
-                
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </div>
-      <Footer />
-    </div></>
-  );
-}
 
+                <div className="mb-8">
+                    <h2 className="text-2xl font-semibold text-blue-600 mb-4">Integration of Virtual Reality and Digital Technologies</h2>
+                    <h3 className="text-xl font-medium text-blue-500 mb-2">High-Fidelity Simulations:</h3>
+                    <p className="text-gray-700 mb-4">
+                        Utilize advanced simulation techniques to model complex physical phenomena with high accuracy. This includes multi-physics simulations that integrate mechanical, electrical, thermal, and fluid dynamics aspects.
+                    </p>
+                </div>
+
+                <div className="mb-8">
+                    <h3 className="text-xl font-medium text-blue-500 mb-2">Real-Time Simulations:</h3>
+                    <p className="text-gray-700 mb-4">
+                        Implement real-time simulation capabilities for dynamic testing of mechatronic systems. Real-time simulation allows for immediate feedback and adjustments, facilitating more effective design and control strategy development.
+                    </p>
+                    <h3 className="text-xl font-medium text-blue-500 mb-2">Virtual Collaboration Platforms:</h3>
+                    <p className="text-gray-700 mb-4">
+                        Use collaborative VR platforms to enable real-time interaction and problem-solving among distributed teams. These platforms allow team members to work together in a shared virtual space, regardless of their physical location.
+                    </p>
+                </div>
+                <div>
+                    <h3 className="text-xl font-medium text-blue-500 mb-2">Cross-Disciplinary Collaboration:</h3>
+                    <p className="text-gray-700">
+                        Facilitate collaboration between experts from different fields (e.g., mechanical engineers, electrical engineers, software developers) through integrated virtual environments where they can jointly work on system design and optimization.
+                    </p>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default AboutUs;

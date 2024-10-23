@@ -22,9 +22,6 @@ const DetailsPage = () => {
     }
 =======
 import axios from 'axios';  // Add axios to send HTTP requests
-import useAuthentication from '../hooks/useAuthentication';
-import Header from '../components/Header/header';
-
 
 const DetailsPage = () => {
     const location = useLocation();
@@ -33,10 +30,7 @@ const DetailsPage = () => {
     const navigate = useNavigate();
 
     const [analysisResult, setAnalysisResult] = useState(null);  // State to store analysis result
-    const [isAnalyzing, setIsAnalyzing] = useState(false); 
-    const { getUserInfosFromSessionStorage } = useAuthentication();
-    const userInfos = getUserInfosFromSessionStorage();
-   
+    const [isAnalyzing, setIsAnalyzing] = useState(false);       // State to track analysis in progress
 
     const handleCancel = () => {
         navigate('/dashboard');
@@ -74,10 +68,6 @@ const DetailsPage = () => {
     if (!data) return <div>No data available</div>;
 
     return (
-
-        <>
-        <Header connected={userInfos ? true : false} role={userInfos?.role}/>
-    
         <main className="bg-gray-100 min-h-screen p-6">
             {/* Header */}
 <<<<<<< HEAD
@@ -223,7 +213,6 @@ const DetailsPage = () => {
 >>>>>>> 035441a18e8bf5201e34ca79af40aa718b77ddbc
             <Footer />
         </main>
-        </>
     );
 };
 
