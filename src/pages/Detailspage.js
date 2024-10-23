@@ -20,29 +20,26 @@ const DetailsPage = () => {
 
     const handleAnalyze = async () => {
         try {
-            setIsAnalyzing(true);  // Set analyzing state to true
-
-            // Create a FormData object to send image files
-            const formData = new FormData();
-            mediaFiles.forEach((file, index) => {
-                formData.append(`file${index}`, file);  // Assuming `mediaFiles` are File objects or URLs
-            });
-
-            // Send the request to the backend for analysis
-            const response = await axios.post('/api/analyze', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-
-            setAnalysisResult(response.data);  // Set the analysis result from the backend
+          setIsAnalyzing(true);
+          const formData = new FormData();
+          mediaFiles.forEach((file, index) => {
+            formData.append(`images`, file);  // Changed to 'images' to match multer config
+          });
+      
+          const response = await axios.post('/api/analyze', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          });
+      
+          setAnalysisResult(response.data);
         } catch (error) {
-            console.error("Error during image analysis:", error);
-            setAnalysisResult({ error: 'Failed to analyze images' });
+          console.error("Error during image analysis:", error);
+          setAnalysisResult({ error: 'Failed to analyze images' });
         } finally {
-            setIsAnalyzing(false);  // Reset analyzing state
+          setIsAnalyzing(false);
         }
-    };
+      };
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
