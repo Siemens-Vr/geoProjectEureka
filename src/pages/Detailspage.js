@@ -1,27 +1,9 @@
-<<<<<<< HEAD
-import React from "react";
-=======
 import React, { useState } from "react";
->>>>>>> 035441a18e8bf5201e34ca79af40aa718b77ddbc
 import { useLocation, useNavigate } from "react-router-dom";
-import useGetProject from '../hooks/data/get/useGetProjects'; 
+import useGetProject from '../hooks/data/get/useGetProjects';
 import Footer from "../components/Footer/footer";
-import Carousel from "../components/Carousel/carousel";  // Import the Carousel component
-<<<<<<< HEAD
-
-const DetailsPage = () => {
-    const location = useLocation();
-    const {itemId, mediaFiles} = location.state || {} ;
-    const { data, isLoading, error } = useGetProject(itemId);
-    const navigate = useNavigate();
-    console.log(mediaFiles)
-   
-
-    const handleCancel = () => {
-        navigate('/dashboard');
-    }
-=======
-import axios from 'axios';  // Add axios to send HTTP requests
+import Carousel from "../components/Carousel/carousel";
+import axios from 'axios';
 
 const DetailsPage = () => {
     const location = useLocation();
@@ -29,8 +11,8 @@ const DetailsPage = () => {
     const { data, isLoading, error } = useGetProject(itemId);
     const navigate = useNavigate();
 
-    const [analysisResult, setAnalysisResult] = useState(null);  // State to store analysis result
-    const [isAnalyzing, setIsAnalyzing] = useState(false);       // State to track analysis in progress
+    const [analysisResult, setAnalysisResult] = useState(null);
+    const [isAnalyzing, setIsAnalyzing] = useState(false);
 
     const handleCancel = () => {
         navigate('/dashboard');
@@ -38,30 +20,26 @@ const DetailsPage = () => {
 
     const handleAnalyze = async () => {
         try {
-            setIsAnalyzing(true);  // Set analyzing state to true
-
-            // Create a FormData object to send image files
+            setIsAnalyzing(true);
             const formData = new FormData();
             mediaFiles.forEach((file, index) => {
-                formData.append(`file${index}`, file);  // Assuming `mediaFiles` are File objects or URLs
+                formData.append(`images`, file);
             });
 
-            // Send the request to the backend for analysis
             const response = await axios.post('/api/analyze', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             });
 
-            setAnalysisResult(response.data);  // Set the analysis result from the backend
+            setAnalysisResult(response.data);
         } catch (error) {
             console.error("Error during image analysis:", error);
             setAnalysisResult({ error: 'Failed to analyze images' });
         } finally {
-            setIsAnalyzing(false);  // Reset analyzing state
+            setIsAnalyzing(false);
         }
     };
->>>>>>> 035441a18e8bf5201e34ca79af40aa718b77ddbc
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
@@ -69,51 +47,25 @@ const DetailsPage = () => {
 
     return (
         <main className="bg-gray-100 min-h-screen p-6">
-            {/* Header */}
-<<<<<<< HEAD
-            <h3 className="text-2xl font-bold text-black-800 flex items-center justify-center mb-6">
-                {data.title} - {data.date}
-            </h3>
-=======
             <h3 className="text-2xl font-bold text-blue-600 flex items-center justify-center mb-2">
-               Tittle : {data.title} 
+                Title: {data.title}
             </h3>
             <h2 className="text-xl font-normal text-black-800 flex items-center justify-center mb-4">Date: {data.date}</h2>
->>>>>>> 035441a18e8bf5201e34ca79af40aa718b77ddbc
 
             <div className="container mx-auto py-6 space-y-6">
-                {/* Flex container for Carousel and General Section */}
                 <div className="flex flex-col md:flex-row md:space-x-6 mb-6">
-                    {/* Media Files Section (Carousel) */}
-<<<<<<< HEAD
-                    {<div className="w-full md:w-1/2 bg-white rounded-lg shadow p-6">
-                        <h4 className="text-lg font-semibold text-gray-700 mb-4">Media</h4>
-                        <Carousel mediaFiles={mediaFiles} />
-                    </div> }
-
-                    {/* General Section */}
-                    <div className="w-full md:w-1/2 bg-white rounded-lg shadow p-6">
-                        <h4 className="text-lg font-semibold text-gray-700 mb-4">General</h4>
-                        <div className="grid grid-cols-2 gap-4">
-                            <p><span className="font-semibold">Location:</span> {data.datas.location}</p>
-                            <p><span className="font-semibold">Sample type:</span> {data.datas.sampleType}</p>
-                        </div>
-=======
                     <div className="w-full md:w-1/2 bg-white rounded-lg shadow p-6">
                         <h4 className="text-xl font-medium text-black-800 flex items-center justify-center mb-4">Media</h4>
                         <Carousel mediaFiles={mediaFiles} />
-
                         <button
                             className="mt-4 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors"
                             onClick={handleAnalyze}
-                            disabled={isAnalyzing}  // Disable button while analyzing
+                            disabled={isAnalyzing}
                         >
                             {isAnalyzing ? 'Analyzing...' : 'Analyze'}
                         </button>
                     </div>
 
-
-                     {/* Analysis Result Section */}
                     {analysisResult && (
                         <div className="w-full md:w-1/2 bg-white rounded-lg shadow p-6">
                             <h4 className="text-xl font-medium text-black-800 flex items-center justify-center mb-4">Analysis Result</h4>
@@ -128,23 +80,16 @@ const DetailsPage = () => {
                     )}
                 </div>
 
-                {/* general section */}
                 <div className="bg-white rounded-lg shadow p-6">
                     <h4 className="text-xl font-medium text-black-800 flex items-center justify-center mb-4">General</h4>
-                    <div className="gridd grid-cols-2 gap 4">
-                    <p><span className="font-semibold">Location:  </span> {data.datas.location}</p>
-                    <p><span className="font-semibold">Sample type:  </span> {data.datas.sampleType}</p>
->>>>>>> 035441a18e8bf5201e34ca79af40aa718b77ddbc
+                    <div className="grid grid-cols-2 gap-4">
+                        <p><span className="font-semibold">Location: </span> {data.datas.location}</p>
+                        <p><span className="font-semibold">Sample type: </span> {data.datas.sampleType}</p>
                     </div>
                 </div>
 
-                {/* Geochemistry Section */}
                 <div className="bg-white rounded-lg shadow p-6">
-<<<<<<< HEAD
-                    <h4 className="text-lg font-semibold text-gray-700 mb-4">Geochemistry</h4>
-=======
                     <h4 className="text-xl font-medium text-black-800 flex items-center justify-center mb-4">Geochemistry</h4>
->>>>>>> 035441a18e8bf5201e34ca79af40aa718b77ddbc
                     <div className="grid grid-cols-2 gap-4">
                         <p><span className="font-semibold">Depth:</span> {data.datas.depth}</p>
                         <p><span className="font-semibold">Temperature:</span> {data.datas.temperature}</p>
@@ -154,13 +99,8 @@ const DetailsPage = () => {
                     <p className="mt-4"><span className="font-semibold">Geochemistry comment:</span><br />{data.geochemistry}</p>
                 </div>
 
-                {/* Geology Section */}
                 <div className="bg-white rounded-lg shadow p-6">
-<<<<<<< HEAD
-                    <h4 className="text-lg font-semibold text-gray-700 mb-4">Geology</h4>
-=======
                     <h4 className="text-xl font-medium text-black-800 flex items-center justify-center mb-4">Geology</h4>
->>>>>>> 035441a18e8bf5201e34ca79af40aa718b77ddbc
                     <div className="grid grid-cols-2 gap-4">
                         <p><span className="font-semibold">Lithology:</span> {data.datas.lithology}</p>
                         <p><span className="font-semibold">Alteration:</span> {data.datas.alteration}</p>
@@ -172,13 +112,8 @@ const DetailsPage = () => {
                     <p className="mt-4"><span className="font-semibold">Geology comment:</span><br />{data.geology}</p>
                 </div>
 
-                {/* Geophysics Section */}
                 <div className="bg-white rounded-lg shadow p-6">
-<<<<<<< HEAD
-                    <h4 className="text-lg font-semibold text-gray-700 mb-4">Geophysics</h4>
-=======
                     <h4 className="text-xl font-medium text-black-800 flex items-center justify-center mb-4">Geophysics</h4>
->>>>>>> 035441a18e8bf5201e34ca79af40aa718b77ddbc
                     <div className="grid grid-cols-2 gap-4">
                         <p><span className="font-semibold">Method:</span> {data.datas.method}</p>
                         <p><span className="font-semibold">Survey date:</span> {data.datas.surveyDate}</p>
@@ -193,11 +128,7 @@ const DetailsPage = () => {
                 </div>
             </div>
 
-<<<<<<< HEAD
-            <div className="flex justify-between items-center py-4 px-6 bg-white shadow-sm">
-=======
             <div className="flex justify-between items-center py-4 px-6 ml-8 mt-5 mb-2">
->>>>>>> 035441a18e8bf5201e34ca79af40aa718b77ddbc
                 <button 
                     className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
                     onClick={handleCancel}
@@ -206,11 +137,7 @@ const DetailsPage = () => {
                 </button>
             </div>
 
-<<<<<<< HEAD
-            <hr />
-=======
-            <hr  mt-5 mb-5/>
->>>>>>> 035441a18e8bf5201e34ca79af40aa718b77ddbc
+            <hr className="mt-5 mb-5" />
             <Footer />
         </main>
     );
