@@ -1,6 +1,6 @@
 const Homecard = () =>{
                 return(
-            <div className="flex p-20 space-x-10">
+            <div class="flex p-20 space-x-10">
             {/* <!-- First Div --> */}
             <div className="w-1/2 p-6 bg-opacity-50 backdrop-blur-lg rounded-lg flex flex-col justify-center items-center hover:shadow-lg shadow-cyan-500 ...">
                 <h2 className="text-2xl font-bold text-blue-600 mb-2">What we do</h2>
