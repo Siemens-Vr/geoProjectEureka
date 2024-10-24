@@ -1,6 +1,7 @@
 const Homecard = () =>{
                 return(
             <div class="flex p-20 space-x-10">
+            <div class="flex p-20 space-x-10">
             {/* <!-- First Div --> */}
             <div className="w-1/2 p-6 bg-opacity-50 backdrop-blur-lg rounded-lg flex flex-col justify-center items-center hover:shadow-lg shadow-cyan-500 ...">
                 <h2 className="text-2xl font-bold text-blue-600 mb-2">What we do</h2>
@@ -15,7 +16,7 @@ const Homecard = () =>{
                 <p className="text-gray-600 text-center decoration-solid">Strengthen linkages between research and industry to drive innovation in the geothermal sector.</p>
                 <p className="text-gray text-center">Contribute to the overall advancement of knowledge and methodologies in geothermal exploration and data analysis.</p>
             </div>
-            </div>
+            </div></div>
     );
 }
-export default Homecard
+export default Homecard;

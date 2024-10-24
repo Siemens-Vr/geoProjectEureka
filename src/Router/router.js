@@ -11,9 +11,9 @@ import EditProjectPage from "../pages/editProjectPage"
 import DetailsPage from "../pages/Detailspage";
 import ContactPage from "../pages/ContactPage";
 import AboutUsPage from "../pages/AboutUsPage";
-import Team from "../team/teamCard";
-import AddTeamMember from "../team/teamMemberPage";
-import Profile from "../team/teamProfile";
+// import Team from "../team/teamCard";
+// import AddTeamMember from "../team/teamMemberPage";
+// import Profile from "../team/teamProfile";
 import Milestones from "../milestones/mileStone";
 
 const Router = () => {
@@ -33,9 +33,9 @@ const Router = () => {
         <Route path="/details" element={<DetailsPage/>}/>
         <Route path="/contact" element={<ContactPage/>}/>
         <Route path="about-us" element={<AboutUsPage/>}/>
-        <Route path="/teams" element={<Team/>}/>
+        {/* <Route path="/teams" element={<Team/>}/>
         <Route path="add-team-member" element={<AddTeamMember/>}/>
-        <Route path="/profile-team" element={<Profile/>}/>
+        <Route path="/profile-team" element={<Profile/>}/> */}
         <Route path="/milestones" element={<Milestones/>}/>
       </Routes>
     </BrowserRouter>
