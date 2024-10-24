@@ -6,6 +6,14 @@ export const userHeader = [
     {
       title : "Account",
       link : "/my-account"
+    },
+    {
+      title :"Teams",
+      link : "/teams"
+    },
+    {
+      title:"Milestones",
+      link: "/milestones"
     }];
 
 export const adminHeader = [
@@ -16,4 +24,13 @@ export const adminHeader = [
     {
       title : "Account",
       link : "/my-account"
-    }];
+    },
+  {
+      title : "Teams",
+      link : "teams"
+    },
+    {
+      title:"Milestones",
+      link: "/milestones"
+    }
+  ];
