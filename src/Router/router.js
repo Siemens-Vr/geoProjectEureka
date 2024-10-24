@@ -12,7 +12,6 @@ import DetailsPage from "../pages/Detailspage";
 import ContactPage from "../pages/ContactPage";
 import AboutUsPage from "../pages/AboutUsPage";
 import TermsOfUsePage from "../pages/TermsOfUsePage";
-=======
 // import Team from "../team/teamCard";
 // import AddTeamMember from "../team/teamMemberPage";
 // import Profile from "../team/teamProfile";
