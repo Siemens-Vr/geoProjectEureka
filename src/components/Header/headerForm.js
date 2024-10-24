@@ -25,7 +25,7 @@ export const adminHeader = [
       title : "Account",
       link : "/my-account"
     },
-    {
+  {
       title : "Teams",
       link : "teams"
     },

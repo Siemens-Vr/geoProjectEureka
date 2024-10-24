@@ -16,7 +16,7 @@ const Homecard = () =>{
                 <p className="text-gray-600 text-center decoration-solid">Strengthen linkages between research and industry to drive innovation in the geothermal sector.</p>
                 <p className="text-gray text-center">Contribute to the overall advancement of knowledge and methodologies in geothermal exploration and data analysis.</p>
             </div>
-            </div>
+            </div></div>
     );
 }
-export default Homecard
+export default Homecard;
