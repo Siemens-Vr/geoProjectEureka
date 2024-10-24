@@ -44,7 +44,7 @@ const SignupForm = () => {
       <form action="#" method="POST" onSubmit={(e) => handleSubmit(e)}>
         {alertBanner && alertBanner}
             <div className="border-b border-gray-900/10 pb-2">
-            <h2 className="text-xl font-semibold leading-2 pb-2 pt-2">Personal informations :</h2>
+            <h2 className="text-xl text-center text-blue-600 font-semibold leading-2 pb-2 pt-2">Personal informations :</h2>
                 {inputs}
             </div>
             <div className="mt-6 flex items-center justify-end gap-x-6 pb-2">

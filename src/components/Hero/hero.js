@@ -17,7 +17,7 @@ const Hero = ({ className }) => {
       
       {/* Position the Homecard absolutely at the bottom */}
       <div className="absolute bottom-0 left-0 right-0 flex justify-center mt-20">
-      {userInfos &&<Homecard />}
+      {/* {userInfos &&<Homecard />} */}
       </div>
     </div>
   );
