@@ -36,7 +36,7 @@ const Header = ({connected, role}) => {
 
   const menu = menuTab && menuTab.map((menu,index)=>{
     return (
-      <li className={`relative max-w-fit pr-3 md:pr-0 py-1 rounded-full hover:bg-light-blue hover:text-white ${isSelected && "absolute h-2 bottom-0 left-0  hover:w-full transition-all duration-300"}`} key={index}>
+      <li className={`relative max-w-fit pr-3 text-xl font-bold md:pr-0 py-1 rounded-full hover:underline-offset-4 hover:text-blue-600 ${isSelected && "absolute h-2 bottom-0 left-0  hover:w-full transition-all duration-300"}`} key={index}>
         <Link to={menu.link} className={'px-2'}>
           {menu.title}
         </Link>

@@ -16,6 +16,7 @@ import TermsOfUsePage from "../pages/TermsOfUsePage";
 // import AddTeamMember from "../team/teamMemberPage";
 // import Profile from "../team/teamProfile";
 import Milestones from "../milestones/mileStone";
+import GoogleDriveViewer from "../milestones/milestoneViewer";
 
 const Router = () => {
   return (
@@ -42,7 +43,6 @@ const Router = () => {
         <Route path="add-team-member" element={<AddTeamMember/>}/>
         <Route path="/profile-team" element={<Profile/>}/> */}
         <Route path="/milestones" element={<Milestones/>}/>
-
       </Routes>
     </BrowserRouter>
   );
