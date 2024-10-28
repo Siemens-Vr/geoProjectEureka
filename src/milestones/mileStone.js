@@ -26,6 +26,7 @@ const Milestones = () => {
               <th className="border border-gray-300 px-4 py-2">Title</th>
               <th className="border border-gray-300 px-4 py-2">Outputs</th>
               <th className="border border-gray-300 px-4 py-2">Evidences</th>
+              <th classNmae="border border-gray-300 px-4 py-2">Status</th>
               <th className="border border-gray-300 px-4 py-2">Timeline</th>
             </tr>
           </thead>
@@ -44,6 +45,13 @@ const Milestones = () => {
                   <ul className="list-disc list-inside">
                     {milestone.evidences.map((evidence, idx) => (
                       <li key={idx} className="text-gray-700">{evidence}</li>
+                    ))}
+                  </ul>
+                </td>
+                <td className="border border-gray-300 px-4 py-2">
+                  <ul className="list-disc list-inside">
+                    {milestone.status.map((status, idx) => (
+                      <li key={idx} className="text-gray-700">{status}</li>
                     ))}
                   </ul>
                 </td>

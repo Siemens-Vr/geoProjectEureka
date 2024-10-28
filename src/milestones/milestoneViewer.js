@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import useAuthentication from "../hooks/useAuthentication";
 import Footer from '../components/Footer/footer';
+import Header from '../components/Header/header';
 
 const GoogleDriveViewer = () => {
   const [documentUrl, setDocumentUrl] = useState('');
@@ -7,6 +9,8 @@ const GoogleDriveViewer = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const {getUserInfosFromSessionStorage}=useAuthentication();
+  const userInfos = getUserInfosFromSessionStorage();
 
   const getEmbedUrl = (url) => {
     try {
@@ -51,7 +55,8 @@ const GoogleDriveViewer = () => {
 
   return (
     <>
-    <div className="max-w-4xl mx-auto p-4">
+      <Header connected={userInfos ? true : false} role={userInfos?.role}/>
+    <div className="max-w-4xl mx-auto p-10 mt-10 mb-20">
       <div className="bg-white rounded-lg shadow-md overflow-hidden">
         <div className="p-6 border-b border-gray-200">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Document Viewer</h2>
