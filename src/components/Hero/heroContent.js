@@ -16,7 +16,7 @@ const heroContent = {
   images: [
       img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,
   ],
-  title: 'Welcome to the Geothermal Survey Portal',
+  title: 'The Ultimate Geothermal Survey Portal',
   subtitle: "Tomorrow's future is decided today.",
 }
 

@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
 
-const FilesUploader = ({handleFileSelection , initialFiles=[]}) => {
+const FilesUploader = ({ handleFileSelection, initialFiles = [] }) => {
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [previews, setPreviews] = useState([]);
-    const [totalSize, setTotalSize] = useState(0); 
+    const [totalSize, setTotalSize] = useState(0);
 
-    const MAX_TOTAL_SIZE = 2 * 1024 * 1024 * 1024; // 2 Go max
+    const MAX_TOTAL_SIZE = 2 * 1024 * 1024 * 1024; // 2 GB max
 
     useEffect(() => {
         if (initialFiles.length > 0) {
             setSelectedFiles(initialFiles);
             const initialPreviews = initialFiles.map(file => ({
                 url: file.url || URL.createObjectURL(file),
-                type: file.type.startsWith('video') ? 'video' : 'image'
+                type: file.type.startsWith('video') ? 'video' :
+                      file.type.startsWith('image') ? 'image' : 'document'
             }));
             setPreviews(initialPreviews);
             const initialTotalSize = initialFiles.reduce((sum, file) => sum + (file.size || 0), 0);
@@ -20,69 +21,57 @@ const FilesUploader = ({handleFileSelection , initialFiles=[]}) => {
         }
     }, [initialFiles]);
 
-
-    // Fonction de gestion des fichiers sélectionnés
     const handleFileChange = (e) => {
-        const files = Array.from(e.target.files); // Transform FileList into a tab
-        const newFiles= Array.from(e.target.files); //declare new files
+        const files = Array.from(e.target.files);
         let currentTotalSize = totalSize;
 
-        // Calcul size
         files.forEach(file => {
             currentTotalSize += file.size;
         });
 
-        // Check if size < 2 Go
         if (currentTotalSize > MAX_TOTAL_SIZE) {
             alert('Total file size exceeds the 2 GB limit!');
             return;
         }
 
-        const updatedFiles = [...selectedFiles, ...newFiles];
+        const updatedFiles = [...selectedFiles, ...files];
         setSelectedFiles(updatedFiles);
         setTotalSize(currentTotalSize);
 
-        const newPreviews = newFiles.map(file => ({
+        const newPreviews = files.map(file => ({
             url: URL.createObjectURL(file),
-            type : file.type.startsWith('video') ? 'video' : 'image'
+            type: file.type.startsWith('video') ? 'video' :
+                  file.type.startsWith('image') ? 'image' : 'document'
         }));
         setPreviews([...previews, ...newPreviews]);
-        handleFileSelection(updatedFiles)
+        handleFileSelection(updatedFiles);
+    };
 
-        const removeFile = (index) => {
-            const updatedFiles = selectedFiles.filter((_, i) => i !== index);
-            const updatedPreviews = previews.filter((_, i) => i !== index);
-            const updatedTotalSize = updatedFiles.reduce((sum, file) => sum + file.size, 0);
-    
-            setSelectedFiles(updatedFiles);
-            setPreviews(updatedPreviews);
-            setTotalSize(updatedTotalSize);
-            handleFileSelection(updatedFiles);
-        };
+    const removeFile = (index) => {
+        const updatedFiles = selectedFiles.filter((_, i) => i !== index);
+        const updatedPreviews = previews.filter((_, i) => i !== index);
+        const updatedTotalSize = updatedFiles.reduce((sum, file) => sum + file.size, 0);
 
-
-        setTotalSize(currentTotalSize);
-        setSelectedFiles(files);
-        
-
-        // Preview url
-        const previewURLs = files.map(file => {
-            return {
-                url: URL.createObjectURL(file),
-                type: file.type.startsWith('video') ? 'video' : 'image'
-            };
-        });
-        setPreviews(previewURLs);
-        handleFileSelection(files)
+        setSelectedFiles(updatedFiles);
+        setPreviews(updatedPreviews);
+        setTotalSize(updatedTotalSize);
+        handleFileSelection(updatedFiles);
     };
 
     return (
         <div>
-            <h2>Select Images or Videos (Max Total Size: 2 GB)</h2>
+            <h2>Select Files (Images, Videos, PDFs, DOCs - Max Total Size: 2 GB)</h2>
             <div className="mt-2 mb-2">
-                <input type="file" onChange={handleFileChange} className="hidden" multiple accept="image/*,video/*" id="filesSelectorButton" />
+                <input
+                    type="file"
+                    onChange={handleFileChange}
+                    className="hidden"
+                    multiple
+                    accept="image/*,video/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    id="filesSelectorButton"
+                />
                 <label htmlFor="filesSelectorButton" className="cursor-pointer text-white px-2 py-2 rounded bg-light-blue">
-                    Selects picture(s) or video(s)
+                    Select files
                 </label>
             </div>
 
@@ -99,15 +88,24 @@ const FilesUploader = ({handleFileSelection , initialFiles=[]}) => {
                                 alt={`Preview ${index}`}
                                 style={{ width: '150px', height: '150px', objectFit: 'cover' }}
                             />
-                        ) : (
+                        ) : file.type === 'video' ? (
                             <video
                                 key={index}
                                 src={file.url}
                                 controls
                                 style={{ width: '150px', height: '150px', objectFit: 'cover' }}
                             />
-                         ) 
-                    ))};
+                        ) : (
+                            <div
+                                key={index}
+                                style={{ width: '150px', height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #ccc', borderRadius: '8px' }}
+                            >
+                                <a href={file.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+                                    {file.type === 'document' ? 'View Document' : 'Download'}
+                                </a>
+                            </div>
+                        )
+                    ))}
                 </div>
             </div>
         </div>
