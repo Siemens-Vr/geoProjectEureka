@@ -12,10 +12,10 @@ import img11 from "../../assets/images/11.jpg"
 import img12 from "../../assets/images/12.jpg"
 import img13 from "../../assets/images/13.jpg"
 
+
 const heroContent = {
   images: [
-      img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,
-  ],
+      img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,  ],
   title: 'Welcome to the Geothermal Survey Portal',
   subtitle: "Tomorrow's future is decided today.",
 }

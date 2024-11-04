@@ -12,10 +12,15 @@ import DetailsPage from "../pages/Detailspage";
 import ContactPage from "../pages/ContactPage";
 import AboutUsPage from "../pages/AboutUsPage";
 import TermsOfUsePage from "../pages/TermsOfUsePage";
+import PrivacyPolicyPage from "../pages/PrivacyPolicyPage";
+import CookiePolicyPage from "../pages/CookiePolicyPage";
+
 // import Team from "../team/teamCard";
 // import AddTeamMember from "../team/teamMemberPage";
 // import Profile from "../team/teamProfile";
 import Milestones from "../milestones/mileStone";
+
+
 
 const Router = () => {
   return (
@@ -34,8 +39,11 @@ const Router = () => {
         <Route path="/details" element={<DetailsPage/>}/>
         <Route path="/contact" element={<ContactPage/>}/>
         <Route path="about-us" element={<AboutUsPage/>}/>
-
-        <Route path="term-of-use" element={<TermsOfUsePage/>}/>
+        <Route path="/term-of-use" element={<TermsOfUsePage/>}/>
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage/>}/>
+        <Route path="/cookie-policy" element={<CookiePolicyPage/>}/>
+        
+       
         
 
         {/* <Route path="/teams" element={<Team/>}/>
