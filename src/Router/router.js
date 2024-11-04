@@ -14,9 +14,11 @@ import AboutUsPage from "../pages/AboutUsPage";
 import TermsOfUsePage from "../pages/TermsOfUsePage";
 import Milestones from "../milestones/mileStone";
 import GoogleDriveViewer from "../milestones/milestoneViewer";
-import DocumentForm from "../components/documents/DocumentForm";
-import DocumentList from "../components/documents/DocumentList";
-import DocumentViewer from "../components/documents/DocumentViewer";
+import DocumentList from "../components/DocumentList";
+import Doc from "../components/doc";
+import AddDocument from "../components/addDocument";
+import ViewDocument from '../components/viewDocument';
+import ImageAnalyzer from "../pages/test";
 
 const Router = () => {
   return (
@@ -37,11 +39,14 @@ const Router = () => {
         <Route path="/milestoneviewer" element={<GoogleDriveViewer />} />
         <Route path="/terms-of-use" element={<TermsOfUsePage />} />
         
-        {/* Document Routes */}
-        <Route path="/document-viewer" element={<DocumentViewer />} />
-        <Route path="/document-form" element={<DocumentForm />} />
-        <Route path="/document-list" element={<DocumentList />} />
+        {/*document routes */}
+        <Route path="/document-list" element={<Doc/>}/>
+        <Route path="/doc-list" element={<DocumentList/>}/>
+        <Route path="/view-doc" element={<ViewDocument/>}/>
+        <Route path="/add-doc" element={<AddDocument/>}/>
 
+      {/* image analyzer */}
+        <Route path="/analyzer" element={<ImageAnalyzer/>}/>
         {/* 404 Error Route */}
         <Route path="*" element={<Error404 />} />
       </Routes>
