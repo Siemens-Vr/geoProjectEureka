@@ -12,8 +12,8 @@ export const userHeader = [
       link: "/milestones"
     },
   {
-    title:"Docs",
-    link : "document-list"
+    title:"Model",
+    link : "/analyzer"
   }];
 
 export const adminHeader = [
@@ -30,7 +30,7 @@ export const adminHeader = [
       link: "/milestones"
     },
     {
-      title:"Docs",
-      link : "document-list"
+      title:"Model",
+      link : "/analyzer"
     }
   ];
