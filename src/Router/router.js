@@ -7,7 +7,7 @@ import SignupPage from "../pages/signupPage";
 import LoginPage from "../pages/loginPage";
 import DashboardPage from "../pages/dashboardPage";
 import CreateProjectPage from "../pages/createProjectPage";
-import EditProjectPage from "../pages/editProjectPage"
+import EditProjectPage from "../pages/editProjectPage";
 import DetailsPage from "../pages/Detailspage";
 import ContactPage from "../pages/ContactPage";
 import AboutUsPage from "../pages/AboutUsPage";
@@ -19,6 +19,12 @@ import CookiePolicyPage from "../pages/CookiePolicyPage";
 // import AddTeamMember from "../team/teamMemberPage";
 // import Profile from "../team/teamProfile";
 import Milestones from "../milestones/mileStone";
+import GoogleDriveViewer from "../milestones/milestoneViewer";
+import DocumentList from "../components/DocumentList";
+import Doc from "../components/doc";
+import AddDocument from "../components/addDocument";
+import ViewDocument from '../components/viewDocument';
+import ImageAnalyzer from "../pages/test";
 
 
 
@@ -26,31 +32,35 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-
         {/* GENERAL ROUTES */}
-        <Route path="*" element={<Error404/>} />
-        <Route path="/login" element={<LoginPage/>}/>
-        <Route path="/signup" element={<SignupPage/>}/>
-        <Route path="" element={<HomePage />} />
-        <Route path="/my-account" element={<MyAccountPage/>}/>
-        <Route path="/dashboard" element={<DashboardPage/>}/>
-        <Route path="/create-project" element={<CreateProjectPage/>}/>
-        <Route path="/edit-project/:id" element={<EditProjectPage/>}/>
-        <Route path="/details" element={<DetailsPage/>}/>
-        <Route path="/contact" element={<ContactPage/>}/>
-        <Route path="about-us" element={<AboutUsPage/>}/>
-        <Route path="/term-of-use" element={<TermsOfUsePage/>}/>
+
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/my-account" element={<MyAccountPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/create-project" element={<CreateProjectPage />} />
+        <Route path="/edit-project/:id" element={<EditProjectPage />} />
+        <Route path="/details" element={<DetailsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/about-us" element={<AboutUsPage />} />
+        <Route path="/milestones" element={<Milestones />} />
+        <Route path="/milestoneviewer" element={<GoogleDriveViewer />} />
+        <Route path="/terms-of-use" element={<TermsOfUsePage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage/>}/>
         <Route path="/cookie-policy" element={<CookiePolicyPage/>}/>
-        
-       
-        
 
-        {/* <Route path="/teams" element={<Team/>}/>
-        <Route path="add-team-member" element={<AddTeamMember/>}/>
-        <Route path="/profile-team" element={<Profile/>}/> */}
-        <Route path="/milestones" element={<Milestones/>}/>
+        
+        {/*document routes */}
+        <Route path="/document-list" element={<Doc/>}/>
+        <Route path="/doc-list" element={<DocumentList/>}/>
+        <Route path="/view-doc" element={<ViewDocument/>}/>
+        <Route path="/add-doc" element={<AddDocument/>}/>
 
+      {/* image analyzer */}
+        <Route path="/analyzer" element={<ImageAnalyzer/>}/>
+        {/* 404 Error Route */}
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>
   );

@@ -8,13 +8,13 @@ export const userHeader = [
       link : "/my-account"
     },
     {
-      title :"Teams",
-      link : "/teams"
-    },
-    {
       title:"Milestones",
       link: "/milestones"
-    }];
+    },
+  {
+    title:"Model",
+    link : "/analyzer"
+  }];
 
 export const adminHeader = [
     {
@@ -25,12 +25,12 @@ export const adminHeader = [
       title : "Account",
       link : "/my-account"
     },
-  {
-      title : "Teams",
-      link : "teams"
-    },
     {
       title:"Milestones",
       link: "/milestones"
+    },
+    {
+      title:"Model",
+      link : "/analyzer"
     }
   ];

@@ -10,6 +10,9 @@ export const milestonesData = [
         "Testing reports",
         "User feedback",
         "Prototype demonstrations"
+      ],
+      status :[
+        "Achieved"
       ]
     },
     {
@@ -23,6 +26,9 @@ export const milestonesData = [
         "Feedback surveys",
         "Workflow documentation",
         "Time-saving metrics"
+      ],
+      status:[
+          "In Progress"
       ]
     },
     {
@@ -36,6 +42,9 @@ export const milestonesData = [
         "Legal submission confirmations",
         "Completion rates",
         "Publication of findings"
+      ],
+      status:[
+        "Pending"
       ]
     }
   ];

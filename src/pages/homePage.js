@@ -6,6 +6,7 @@ import useAuthentication from "../hooks/useAuthentication";
 import Homecard from "./homeCard";
 import NewsroomHeroSection from "../components/Hero/NewsRoom";
 import GeothermalHeroSection from "../components/Hero/Geothermal";
+
 // import Sponsors from "../components/Sponsors/Sponsors"
 // import heroContent from "../components/Hero/heroContent";
 
@@ -26,6 +27,7 @@ const HomePage = () => {
             <div className="w-full mt-6">
                 <GeothermalHeroSection />
             </div>
+
             {/* {userInfos && <Sponsors />}  This will render Sponsors if userInfos exists */}
             <Footer />
         </Fragment>

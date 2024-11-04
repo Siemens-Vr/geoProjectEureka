@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { axiosReq } from "../../../utils/axios"; 
+import { axiosReq } from "../../../utils/axios";
 
 const useGetProject = (id) => {
     const [data, setData] = useState(null);
@@ -7,10 +7,10 @@ const useGetProject = (id) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const getProject = async (id) => {
+        const getProject = async () => {
             setIsLoading(true);
             try {
-                const response = await axiosReq.get(`/api/data/project`, {params: {itemId:id}}); 
+                const response = await axiosReq.get(`/api/data/project`, { params: { itemId: id } });
                 if (response && response.data) {
                     setData(response.data);
                 }
@@ -20,10 +20,10 @@ const useGetProject = (id) => {
                 setIsLoading(false);
             }
         };
-        getProject(id);
-    }, []);
+        getProject();
+    }, [id]);
 
-    return { data, isLoading, error }; // Make sure this returns individual values
+    return { data, isLoading, error };
 };
 
 export default useGetProject;
