@@ -4,8 +4,9 @@ import Footer from "../components/Footer/footer";
 import Hero from "../components/Hero/hero";
 import useAuthentication from "../hooks/useAuthentication";
 import Homecard from "./homeCard";
-import HomeContent2 from "./homeContent_2";
-import ImageAnalyzer from "./test"
+import NewsroomHeroSection from "../components/Hero/NewsRoom";
+import GeothermalHeroSection from "../components/Hero/Geothermal";
+
 // import Sponsors from "../components/Sponsors/Sponsors"
 // import heroContent from "../components/Hero/heroContent";
 
@@ -20,7 +21,13 @@ const HomePage = () => {
             {/* <Hero name={userInfos?.firstName} heroContent={heroContent.find((item)=> item.role === userInfos?.role)} /> */}
             <Hero  className="h-[80vh]"/>
             {userInfos && <Homecard/>}
-            <HomeContent2/>
+            <div className="w-full mt-3">
+                <NewsroomHeroSection />
+            </div>
+            <div className="w-full mt-6">
+                <GeothermalHeroSection />
+            </div>
+
             {/* {userInfos && <Sponsors />}  This will render Sponsors if userInfos exists */}
             <Footer />
         </Fragment>

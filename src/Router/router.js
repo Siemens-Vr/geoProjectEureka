@@ -12,6 +12,12 @@ import DetailsPage from "../pages/Detailspage";
 import ContactPage from "../pages/ContactPage";
 import AboutUsPage from "../pages/AboutUsPage";
 import TermsOfUsePage from "../pages/TermsOfUsePage";
+import PrivacyPolicyPage from "../pages/PrivacyPolicyPage";
+import CookiePolicyPage from "../pages/CookiePolicyPage";
+
+// import Team from "../team/teamCard";
+// import AddTeamMember from "../team/teamMemberPage";
+// import Profile from "../team/teamProfile";
 import Milestones from "../milestones/mileStone";
 import GoogleDriveViewer from "../milestones/milestoneViewer";
 import DocumentList from "../components/DocumentList";
@@ -20,11 +26,14 @@ import AddDocument from "../components/addDocument";
 import ViewDocument from '../components/viewDocument';
 import ImageAnalyzer from "../pages/test";
 
+
+
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         {/* GENERAL ROUTES */}
+
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
@@ -38,6 +47,9 @@ const Router = () => {
         <Route path="/milestones" element={<Milestones />} />
         <Route path="/milestoneviewer" element={<GoogleDriveViewer />} />
         <Route path="/terms-of-use" element={<TermsOfUsePage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage/>}/>
+        <Route path="/cookie-policy" element={<CookiePolicyPage/>}/>
+
         
         {/*document routes */}
         <Route path="/document-list" element={<Doc/>}/>
