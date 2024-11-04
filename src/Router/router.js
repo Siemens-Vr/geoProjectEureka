@@ -22,9 +22,11 @@ import Milestones from "../milestones/mileStone";
 import GoogleDriveViewer from "../milestones/milestoneViewer";
 import DocumentList from "../components/DocumentList";
 import Doc from "../components/doc";
-import AddDocument from "../components/addDocument";
+// import AddDocument from "../components/addDocument";
 import ViewDocument from '../components/viewDocument';
 import ImageAnalyzer from "../pages/test";
+import DocumentForm from "../components/addDocument";
+import TeamMemberPage from "../pages/teams";
 
 
 
@@ -52,15 +54,21 @@ const Router = () => {
 
         
         {/*document routes */}
-        <Route path="/document-list" element={<Doc/>}/>
+        {/* <Route path="/document-list" element={<Doc/>}/>
         <Route path="/doc-list" element={<DocumentList/>}/>
         <Route path="/view-doc" element={<ViewDocument/>}/>
-        <Route path="/add-doc" element={<AddDocument/>}/>
+        <Route path="/add-doc" element={<AddDocument/>}/> */}
+        <Route path="/documents" element={<DocumentForm/>}/>
+
+        {/* teams */}
+        <Route path="/teams" element={<TeamMemberPage/>}/>
 
       {/* image analyzer */}
         <Route path="/analyzer" element={<ImageAnalyzer/>}/>
+
         {/* 404 Error Route */}
         <Route path="*" element={<Error404 />} />
+
       </Routes>
     </BrowserRouter>
   );

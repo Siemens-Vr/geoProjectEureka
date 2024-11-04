@@ -12,7 +12,7 @@ const Milestones = () => {
 
 
     const handleView = () => {
-      navigate('/milestoneviewer');
+      navigate('/documents');
   };
   return (<>
    <Header connected={userInfos ? true : false} role={userInfos?.role}/>
@@ -67,7 +67,7 @@ const Milestones = () => {
                     className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
                     onClick={handleView}
                 >
-                    PDF
+                    Other Documents
                 </button>
             </div>
     <Footer/>
