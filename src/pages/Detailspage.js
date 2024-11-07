@@ -90,11 +90,11 @@ const DetailsPage = () => {
                         <h4 className="text-xl font-medium text-black-800 flex items-center justify-center mb-4">Media</h4>
                         <Carousel mediaFiles={mediaFiles} />
                         <button
-                            className="mt-4 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors"
+                            className="mt-4 bg-white-500 text-white py-2 px-4 rounded-lg hover:bg-white-600 transition-colors"
                             onClick={handleAnalyze}
                             disabled={isAnalyzing || loadedImages.length === 0}
                         >
-                            {isAnalyzing ? "Analyzing..." : "Analyze"}
+                            {isAnalyzing ? "Analyzing..." : "Analyze/ this is a deprecated function"}
                         </button>
                     </div>
 

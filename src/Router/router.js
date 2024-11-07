@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// Pages
 import HomePage from "../pages/homePage";
 import Error404 from "../pages/Errors/error404";
 import MyAccountPage from "../pages/myAccountPage";
@@ -14,28 +16,22 @@ import AboutUsPage from "../pages/AboutUsPage";
 import TermsOfUsePage from "../pages/TermsOfUsePage";
 import PrivacyPolicyPage from "../pages/PrivacyPolicyPage";
 import CookiePolicyPage from "../pages/CookiePolicyPage";
+import ImageAnalyzer from "../pages/test";
+import TeamMemberPage from "../pages/teams";
 
-// import Team from "../team/teamCard";
-// import AddTeamMember from "../team/teamMemberPage";
-// import Profile from "../team/teamProfile";
+// Components
 import Milestones from "../milestones/mileStone";
 import GoogleDriveViewer from "../milestones/milestoneViewer";
 import DocumentList from "../components/DocumentList";
 import Doc from "../components/doc";
-// import AddDocument from "../components/addDocument";
 import ViewDocument from '../components/viewDocument';
-import ImageAnalyzer from "../pages/test";
 import DocumentForm from "../components/addDocument";
-import TeamMemberPage from "../pages/teams";
-
-
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         {/* GENERAL ROUTES */}
-
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
@@ -49,26 +45,22 @@ const Router = () => {
         <Route path="/milestones" element={<Milestones />} />
         <Route path="/milestoneviewer" element={<GoogleDriveViewer />} />
         <Route path="/terms-of-use" element={<TermsOfUsePage />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicyPage/>}/>
-        <Route path="/cookie-policy" element={<CookiePolicyPage/>}/>
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/cookie-policy" element={<CookiePolicyPage />} />
 
-        
         {/*document routes */}
-        {/* <Route path="/document-list" element={<Doc/>}/>
-        <Route path="/doc-list" element={<DocumentList/>}/>
-        <Route path="/view-doc" element={<ViewDocument/>}/>
-        <Route path="/add-doc" element={<AddDocument/>}/> */}
-        <Route path="/documents" element={<DocumentForm/>}/>
+        <Route path="/documents" element={<DocumentForm />} />
+        <Route path="/doc-list" element={<DocumentList />} />
+        <Route path="/view-doc" element={<ViewDocument />} />
 
         {/* teams */}
-        <Route path="/teams" element={<TeamMemberPage/>}/>
+        <Route path="/teams" element={<TeamMemberPage />} />
 
-      {/* image analyzer */}
-        <Route path="/analyzer" element={<ImageAnalyzer/>}/>
+        {/* image analyzer */}
+        <Route path="/analyzer" element={<ImageAnalyzer />} />
 
         {/* 404 Error Route */}
         <Route path="*" element={<Error404 />} />
-
       </Routes>
     </BrowserRouter>
   );

@@ -132,12 +132,12 @@ export default function ImageAnalyzer() {
         {isDialogOpen && (
           <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center">
             <div className="bg-white p-5 rounded-lg shadow-xl max-w-md">
-              <h3 className="text-2xl font-semibold mb-4 font-bold">Disclaimer</h3>
+              <h3 className="text-2xl font-semibold mb-4 font-bold text-center text-red-600">Disclaimer</h3>
               <p className="text-gray-600 text-xl mb-6">
                 This image analysis model is designed for demonstration purposes and may
                 have limitations due to the dataset size used in its training.
                 The results provided should not be interpreted as professional or conclusive advice.
-                For critical decisions or precise analysis, please consult a qualified professional or specialist in the field.
+                For critical decisions or precise analysis, please understand that you have to consult a qualified professional or specialist in the field.
               </p>
               <button
                 onClick={() => setIsDialogOpen(false)}
