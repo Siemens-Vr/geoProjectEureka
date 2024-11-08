@@ -137,7 +137,7 @@ export default function ImageAnalyzer() {
                 This image analysis model is designed for demonstration purposes and may
                 have limitations due to the dataset size used in its training.
                 The results provided should not be interpreted as professional or conclusive advice.
-                For critical decisions or precise analysis, please consult a qualified professional or specialist in the field.
+                For critical decisions or precise analysis, please note you have to consult a qualified professional or specialist in the field.
               </p>
               <button
                 onClick={() => setIsDialogOpen(false)}

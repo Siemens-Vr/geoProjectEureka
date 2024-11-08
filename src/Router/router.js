@@ -25,7 +25,7 @@ import Doc from "../components/doc";
 // import AddDocument from "../components/addDocument";
 import ViewDocument from '../components/viewDocument';
 import ImageAnalyzer from "../pages/test";
-import DocumentForm from "../components/addDocument";
+import ArticleUploadAndRetrieve from "../components/addDocument";
 import TeamMemberPage from "../pages/teams";
 
 
@@ -58,7 +58,7 @@ const Router = () => {
         <Route path="/doc-list" element={<DocumentList/>}/>
         <Route path="/view-doc" element={<ViewDocument/>}/>
         <Route path="/add-doc" element={<AddDocument/>}/> */}
-        <Route path="/documents" element={<DocumentForm/>}/>
+        <Route path="/documents" element={<ArticleUploadAndRetrieve/>}/>
 
         {/* teams */}
         <Route path="/teams" element={<TeamMemberPage/>}/>
