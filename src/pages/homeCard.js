@@ -11,6 +11,7 @@ const Homecard = () => {
           <p className="text-blue-600 text-center mt-4 mb-3 text-2xl font-semibold">
             Contribute Towards the Course
           </p>
+          
         </div>
 
         {/* Second Card */}
