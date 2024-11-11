@@ -120,7 +120,7 @@ const ContactForm = () => {
 
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-sky-900 text-base-content mt-5">
+    <footer className="footer p-10 bg-sky-700 text-base-content mt-5">
       <aside> 
         <img src={SiemensLogo} className="w-72 max-w-96" alt="logo" />
       </aside> 
