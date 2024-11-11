@@ -9,7 +9,7 @@ const Footer = () => {
             </aside> 
             <nav>
                 <h6 className="footer-title">Company</h6> 
-                <a className="link link-hover" href="https://vmlab.dkut.ac.ke">Home site</a>
+                <a className="link link-hover" href="">Home site</a>
                 <a className="link link-hover" alt="link" href="/about-us">About us</a>
                 <a className="link link-hover" alt="link" href="/contact">Contact</a>
             </nav> 
