@@ -18,7 +18,8 @@ const Footer = () => {
                 <a className="link link-hover" href="/term-of-use">Terms of use</a>
                 <a className="link link-hover" href="/privacy-policy">Privacy policy</a>
                 <a className="link link-hover" href="/cookie-policy">Cookie policy</a>
-                <a className="link link-hover" href="/documents">DocumentList</a>
+                <a className="link link-hover" href="/teams">Teams</a>
+                <a className="link link-hover" href="*">Curious</a>
             </nav>
         </footer>
     );
