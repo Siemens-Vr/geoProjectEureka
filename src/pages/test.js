@@ -70,7 +70,7 @@ export default function ImageAnalyzer() {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-2">
-                Upload Images:
+                Upload Images: (preferably jpg files)
               </label>
               <input
                 id="image"
